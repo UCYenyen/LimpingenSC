@@ -47,5 +47,12 @@ class ProjectSeeder extends Seeder
             'image_url' => 'ref21.png',
             'user_id' => 1
         ]);
+
+        DB::table('projects')->insert([
+            'name' => 'Dummy',
+            'description' => 'Dumny is an app that deliver Netflix and Spotify like streaming features tailored for STEMI’s ministry needs',
+            'image_url' => 'ref21.png',
+            'user_id' => 1
+        ]);
     }
 }

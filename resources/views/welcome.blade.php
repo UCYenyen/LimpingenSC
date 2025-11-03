@@ -3,7 +3,7 @@
 @section('content')
     <link href="/css/home.css" rel="stylesheet">
     {{-- hero mobile --}}
-    <div class="flex md:hidden justify-center min-h-screen items-center">
+    <div class="flex lg:hidden justify-center min-h-screen items-center">
         <div class="flex flex-col h-[80vh] w-screen overflow-x-hidden justify-between items-center relative">
             <div class="w-full h-full text-5xl flex flex-col gap-4 justify-center items-center">
                 <h1 class="w-full text-center">We Create</h1>
@@ -18,7 +18,7 @@
         </div>
     </div>
 
-    <div class="hidden md:flex justify-center items-center min-h-screen w-screen overflow-x-hidden">
+    <div class="hidden lg:flex justify-center items-center min-h-screen w-screen overflow-x-hidden">
         <div class="flex flex-col h-screen py-[5%] basis-1/2 overflow-x-hidden justify-between items-center relative">
             <div class="w-[80%] h-full text-5xl md:text-7xl text-left flex flex-col gap-4 justify-center items-start">
                 <h1 class="w-full">We Create</h1>
@@ -34,7 +34,7 @@
                 <h3 class="text-black text-2xl font-semibold">Scroll Down</h3>
             </div>
         </div>
-        <img src="/images/home/home-dekstop-hero.webp" class="basis-1/2 h-screen object-cover w-full" alt="limpingen hero"
+        <img src="/images/home/home-dekstop-hero.webp" class="basis-1/2 hidden xl:inline-block h-screen object-cover w-full" alt="limpingen hero"
             draggable="false">
     </div>
 
@@ -60,7 +60,7 @@
 
     <div class="mt-24 mb-24 min-h-screen w-full flex flex-col gap-14 justify-center items-center">
         <h1 class="text-5xl sm:text-6xl font-bold text-black">Projects</h1>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+        <div class="w-[80%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             @foreach ($featuredProjects as $project)
                 <x-pages.project-card>
                     <x-slot:id>
@@ -77,7 +77,7 @@
             @endforeach
         </div>
         <a href="/projects" class="py-4">
-            <h3 class="fw-semibold fs-5 py-3 px-8 btn-blue w-fit rounded-3 text-white ">Show more</h3>
+            <h3 class="font-semibold text-2xl py-3 px-8 bg-interactible-primary-active hover:bg-transparent hover:text-interactible-primary-active rounded-lg w-fit rounded-3 text-white transition-all duration-300 border-2 border-interactible-primary-active">Show more</h3>
         </a>
     </div>
 @endsection

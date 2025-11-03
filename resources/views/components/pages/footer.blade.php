@@ -2,7 +2,7 @@
     {{-- atas --}}
     <div class="flex flex-col lg:flex-row justify-between items-center lg:items-start p-8 gap-8 w-[80%]">
         <div class="flex flex-col justify-center items-center lg:items-start gap-4">
-            <h2 class="text-4xl font-bold">Limpingen</h2>
+            <h2 class="text-2xl font-bold">Limpingen</h2>
             <div class="flex gap-4 items-center">
                 <a href="https://wa.me/+6287722727717" target="_blank">
                     <svg width="56" height="56" viewBox="0 0 56 56" fill="none"
@@ -24,15 +24,15 @@
             </div>
         </div>
         <div class="flex flex-col lg:flex-row gap-8 items-center lg:items-start">
-            <div class="flex flex-col gap-4 items-center lg:items-start">
-                <h2 class="text-4xl font-bold">Contact us</h2>
-                <p class="text-lg font-normal mb-0 text-center text-lg-start">
+            <div class="flex text-lg flex-col gap-4 items-center lg:items-start max-w-[400px]">
+                <h2 class="text-2xl font-bold">Contact us</h2>
+                <p class="font-normal mb-0 text-center text-lg-start">
                     +62 877 227 277 17
                 </p>
-                <a href="mailto:limpingensoftcomp@gmail.com" class="text-lg font-normal mb-0 text-center text-white lg:text-start">
+                <a href="mailto:limpingensoftcomp@gmail.com" class="font-normal mb-0 text-center text-white lg:text-start">
                     limpingensoftcomp@gmail.com
                 </a>
-                <p class="text-4xl font-normal mb-0 text-center lg:text-start">
+                <p class="font-normal mb-0 text-center lg:text-start">
                     Jl. Raja H. Fisabililah 28, Sei Jang, Bukit Bestari,
                     Kota Tanjung Pinang Kepulauan Riau 29123
                 </p>
@@ -55,7 +55,7 @@
         </div>
     </div>
     {{-- bawah --}}
-    <div class="bg-dark-blue w-100">
-        <p class="fs-6 fw-normal py-4 text-center m-0">© 2025 Limpingen. All rights reserved.</p>
+    <div class="bg-[#263375] w-full">
+        <p class="text-xl fw-normal py-4 text-center m-0">© 2025 Limpingen. All rights reserved.</p>
     </div>
 </footer>

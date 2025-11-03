@@ -19,7 +19,7 @@
     </div>
 
     <!-- Right Side - Content -->
-    <div class="w-full xl:w-1/2 flex flex-col gap-6 md:gap-10 items-center md:items-start">
+    <div class="w-full xl:w-1/2 flex flex-col gap-6 md:gap-10 items-center lg:items-start">
         <div>
             <h2 class="text-white text-3xl md:text-4xl font-semibold">About us</h2>
         </div>
@@ -84,7 +84,7 @@
         </div>
 
         <div>
-            <a href="/pricing" class="inline-block bg-white px-6 py-3 rounded-lg text-primary font-semibold hover:bg-gray-100 transition-colors duration-300">
+            <a href="/pricing" class="inline-block bg-white hover:bg-interactible-primary-active border-2 hover:border-interactible-primary px-6 py-3 rounded-lg text-primary hover:text-white font-semibold transition-colors duration-300">
                 Get Started
             </a>
         </div>
