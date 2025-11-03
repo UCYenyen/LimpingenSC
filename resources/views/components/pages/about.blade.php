@@ -19,7 +19,7 @@
     </div>
 
     <!-- Right Side - Content -->
-    <div class="w-full xl:w-1/2 flex flex-col gap-6 md:gap-10">
+    <div class="w-full xl:w-1/2 flex flex-col gap-6 md:gap-10 items-center md:items-start">
         <div>
             <h2 class="text-white text-3xl md:text-4xl font-semibold">About us</h2>
         </div>

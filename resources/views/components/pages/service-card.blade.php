@@ -1,4 +1,4 @@
-<div class="flex h-full p-4 flex-col items-center sm:items-start gap-4 bg-interactible-primary shadow-[0_1px_10px_rgba(0,0,0,0.2)] border-b-2 border-blue-500 hover:bg-interactible-primary-active rounded-lg services-card">
+<div class="flex h-full p-4 hover:cursor-pointer flex-col items-center sm:items-start gap-4 bg-interactible-primary shadow-[0_1px_10px_rgba(0,0,0,0.2)] border-b-2 border-blue-500 hover:bg-interactible-primary-active hover:text-white rounded-lg services-card transition-all duration-300">
     <div class="rounded-full bg-icon-primary p-2 w-fit">
         @if ($service_type == "Websites")
             <img src="/images/home/crown.svg" draggable="false" width="50" height="50" alt="">

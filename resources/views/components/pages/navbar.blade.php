@@ -31,11 +31,18 @@
                     @endif --}}
                 @endauth
             </div>
-            <div class="flex md:hidden flex-col gap-1">
+            <button id="hamburgerButton" class="hamburger-menu flex md:hidden flex-col gap-1" type="button">
                 <div class="w-6 h-1 bg-primary"></div>
                 <div class="w-6 h-1 bg-primary"></div>
                 <div class="w-6 h-1 bg-primary"></div>
-            </div>
+            </button>
         </nav>
     @endif
+    <div class="mobile-panel md:hidden" id="panelMenuMobile">
+        <div class="flex flex-col text-black font-semibold items-center gap-3 mt-4 mb-3">
+            <a class="" href="/projects">Projects</a>
+            <a class="" href="/pricing">Pricing</a>
+            <a class="py-2 px-4 rounded-2 text-white" style="background-color: #5D71D6"  href="/login">Login</a>
+        </div>
+    </div>
 </header>

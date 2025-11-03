@@ -15,3 +15,40 @@
     --color-icon-primary: #F0F2F6;
     --color-icon-primary-active: #F0F2F6;
 }
+
+.hamburger-menu {
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.hamburger-menu div {
+    transition: all 0.3s;
+}
+
+.hamburger-menu.active div:nth-child(1) {
+    transform: rotate(55deg) translate(7.5px,5px);
+}
+
+.hamburger-menu.active div:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active div:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.mobile-panel {
+    display: none;
+    position: fixed;
+    top: 7vh; /* Match header height */
+    left: 0;
+    width: 100%;
+    background: white;
+    z-index: 99;
+    padding: 1rem;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+.mobile-panel.show {
+    display: block;
+}

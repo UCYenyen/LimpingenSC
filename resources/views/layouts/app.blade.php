@@ -15,20 +15,33 @@
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
+
 <body class="font-sans antialiased">
     <div class="min-h-screen bg-gray-100">
-        <x-pages.navbar/>
+        <x-pages.navbar />
         @yield('content')
         <x-pages.footer />
         <script>
             const hamburgerBtn = document.getElementById('hamburgerButton');
             const mobilePanel = document.getElementById('panelMenuMobile');
+
             if (hamburgerBtn && mobilePanel) {
-                hamburgerBtn.addEventListener('click', function() {
+                hamburgerBtn.addEventListener('click', () => {
                     mobilePanel.classList.toggle('show');
+                    // Optional: Toggle hamburger icon animation
+                    hamburgerBtn.classList.toggle('active');
+                });
+
+                // Close menu when clicking outside
+                document.addEventListener('click', (e) => {
+                    if (!hamburgerBtn.contains(e.target) && !mobilePanel.contains(e.target)) {
+                        mobilePanel.classList.remove('show');
+                        hamburgerBtn.classList.remove('active');
+                    }
                 });
             }
         </script>
     </div>
 </body>
+
 </html>
