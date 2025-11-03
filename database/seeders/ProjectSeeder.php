@@ -49,9 +49,9 @@ class ProjectSeeder extends Seeder
         ]);
 
         DB::table('projects')->insert([
-            'name' => 'Dummy',
-            'description' => 'Dumny is an app that deliver Netflix and Spotify like streaming features tailored for STEMI’s ministry needs',
-            'image_url' => 'ref21.png',
+            'name' => 'Pondok Pujian',
+            'description' => 'Pondok Pujian is a music app that features lyrics subtitles, sheet music (partiture), vocal and instrumental mode switching, and background audio playback for seamless listening while multitasking.',
+            'image_url' => 'pondok-pujian.png',
             'user_id' => 1
         ]);
     }

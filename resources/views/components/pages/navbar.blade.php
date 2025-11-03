@@ -3,7 +3,7 @@
         <nav class="flex items-center text-black w-full justify-between gap-4">
             <a href="/" class="flex gap-1 items-center justify-center">
                 <img src="/limpingen-logo.svg" class="w-14 h-auto" alt="limpingen logo">
-                <h1 class="hidden md:inline-block font-normal text-lg text-black">Limpingen Soft Comp</h1>
+                <h1 class="hidden md:inline-block font-semibold text-lg text-primary">Limpingen Soft Comp</h1>
             </a>
             <div class="hidden gap-4 md:flex items-center justify-center">
                 <a href="/projects">Projects</a>
