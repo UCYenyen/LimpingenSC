@@ -58,7 +58,7 @@
 
     <x-pages.about></x-pages.about>
 
-    <div class="mt-24 mb-24 min-h-screen w-full flex flex-col gap-14 justify-center items-center">
+    <div class="mt-24 mb-24 w-full flex flex-col gap-14 justify-center items-center">
         <h1 class="text-5xl sm:text-6xl font-bold text-black">Projects</h1>
         <div class="w-[80%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             @foreach ($featuredProjects as $project)

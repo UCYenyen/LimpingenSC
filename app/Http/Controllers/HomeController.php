@@ -11,7 +11,7 @@ class HomeController extends Controller
     {
         $allServices = Service::all();
         
-        $featuredProjects = Project::latest()->limit(6)->get();
+        $featuredProjects = Project::latest()->limit(3)->get();
         
         return view('welcome', [
             'featuredProjects' => $featuredProjects,
