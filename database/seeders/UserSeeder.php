@@ -16,7 +16,7 @@ class UserSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'Jeffrey',
             'email' => 'limpingensoftcomp@gmail.com',
-            'password' => 'jeffrey123',
+            'password' => bcrypt('jeffrey123'),
             'phone_number' => '087722727717',
             'role' => 'admin'
         ]);
@@ -24,7 +24,7 @@ class UserSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'Obie',
             'email' => 'obiezuriel631@gmail.com',
-            'password' => 'obie123',
+            'password' => bcrypt('obie123'),
             'phone_number' => '082327701882',
             'role' => 'viewer'
         ]);
@@ -32,7 +32,7 @@ class UserSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'Bryan',
             'email' => 'bryanfernandodinata@gmail.com',
-            'password' => 'bryan123',
+            'password' => bcrypt('bryan123'),
             'phone_number' => '081231847161',
             'role' => 'viewer'
         ]);
