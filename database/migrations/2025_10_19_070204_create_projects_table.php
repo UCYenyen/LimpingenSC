@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->string('image_url');
-            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('user_id')->default(1)->constrained('users');
         });
     }
 

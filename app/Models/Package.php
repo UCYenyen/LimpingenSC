@@ -12,12 +12,12 @@ class Package extends Model
 
     protected $fillable = [
         'name',
-        'desription',
+        'description',
         'price',
         'service_id',
     ];
 
-    public function services()
+    public function service()
     {
         return $this->belongsTo(Service::class);
     }
