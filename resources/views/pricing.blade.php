@@ -1,12 +1,12 @@
-@extends('layout.app')
+@extends('layouts.app')
 @section('title', 'Pricing')
 
 @section('content')
-    <div style="width:100vw; height:15vh;"></div>
-    <div class="d-flex justify-content-center align-items-center" style="min-height: 80vh">
-        <div class="row mb-24 row-cols-1 row-cols-md-3 gap-4 justify-content-center" style="">
+    <div class="w-screen h-[15vh]"></div>
+    <div class="flex justify-center items-center min-h-[80vh]">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-24 justify-items-center">
             @foreach ($allPackages as $package)
-                <x-packages-card>
+                <x-pages.package-card>
                     <x-slot:name>
                         {{ $package->name }}
                     </x-slot:name>
@@ -14,7 +14,7 @@
                         {{ $package->price }}
                     </x-slot:price>
                     {{ $package->description }}
-                </x-packages-card>
+                </x-pages.package-card>
             @endforeach
         </div>
     </div>
