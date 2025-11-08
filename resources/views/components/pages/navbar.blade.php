@@ -9,13 +9,9 @@
                 <a href="/projects">Projects</a>
                 <a href="/pricing">Pricing</a>
                 @auth
-                    <a href="{{ url('/dashboard') }}"
-                        class="inline-block px-5 py-1.5 border-[#19140035] border text-[#1b1b18] rounded-sm text-sm leading-normal">
-                        Dashboard
-                    </a>
                     <form method="POST" action="/logout" class="inline">
                         @csrf
-                        <button type="submit" class="inline-block px-5 py-1.5 text-sm hover:border-[#19140035] rounded-sm">
+                        <button type="submit" class="inline-block px-5 py-1.5 text-sm border bg-interactible-primary-active rounded-lg text-white hover:border-interactible-primary-active hover:bg-white hover:text-interactible-primary-active transition-all duration-100"">
                             Logout
                         </button>
                     </form>
