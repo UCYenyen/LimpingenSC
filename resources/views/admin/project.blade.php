@@ -2,7 +2,7 @@
 @section('title', 'Admin Project')
 
 @section('content')
-    <div class="w-screen min-h-screen pt-[10vh] flex flex-col items-center p-8">
+    <div class="w-screen min-h-screen flex flex-col items-center justify-center p-8">
         <div class="w-full max-w-7xl">
             <div class="mb-8 flex justify-between items-center">
                 <div>
