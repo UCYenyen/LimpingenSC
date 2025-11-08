@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -29,6 +30,16 @@ Route::get('/pricing', [PackageController::class, 'index']);
 
 Route::get('/projects', [ProjectController::class, 'index']);
 Route::get('/projects/{id}', [ProjectController::class, 'show']);
+
+Route::get('/admin', [AdminController::class, 'index']);
+
+Route::get('/admin-request', [AdminController::class, 'manageRequests']);
+
+Route::get('/admin-project', [AdminController::class, 'manageProjects']);
+
+Route::get('/admin-pricing', [AdminController::class, 'managePricing']);
+
+Route::delete('/admin-project/{id}', [AdminController::class, 'destroyProject'])->name('admin.project.destroy');
 
 
 require __DIR__.'/auth.php';

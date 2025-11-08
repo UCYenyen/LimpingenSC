@@ -1,0 +1,41 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Project;
+use Illuminate\Http\Request;
+
+class AdminController extends Controller
+{
+    public function index()
+    {
+        return view('admin.index');
+    }
+
+    public function manageRequests()
+    {
+        return view('admin.request');
+    }
+
+    public function manageProjects()
+    {
+        $allProjects = Project::with('user')->paginate(3);
+        
+        return view('admin.project', [
+            'allProjects' => $allProjects
+        ]);
+    }
+
+    public function managePricing()
+    {
+        return view('admin.pricing');
+    }
+
+    public function destroyProject($id)
+    {
+        $project = Project::findOrFail($id);
+        $project->delete();
+        
+        return redirect()->back()->with('success', 'Project deleted successfully!');
+    }
+}

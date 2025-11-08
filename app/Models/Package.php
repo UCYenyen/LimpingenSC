@@ -17,7 +17,7 @@ class Package extends Model
         'service_id',
     ];
 
-    public function services()
+    public function service()
     {
         return $this->belongsTo(Service::class);
     }
