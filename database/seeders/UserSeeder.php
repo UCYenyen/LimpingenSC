@@ -31,10 +31,10 @@ class UserSeeder extends Seeder
 
         DB::table('users')->insert([
             'name' => 'Bryan',
-            'email' => 'bryanfernandodinata@gmail.com',
+            'email' => 'bfernando@student.ciputra.ac.id',
             'password' => bcrypt('bryan123'),
             'phone_number' => '081231847161',
-            'role' => 'viewer'
+            'role' => 'admin'
         ]);
     }
 }

@@ -1,16 +1,19 @@
-@extends('layout.app')
+@extends('layouts.app')
 @section('title', 'Request')
 
 @section('content')
-<link rel="stylesheet" href="/css/request.css">
-<div class="container min-vh-100 d-flex align-items-center justify-content-center py-5">
-    <div class="card request-card w-100">
-        <div class="card-body p-4 p-md-5">
-            <h3 class="text-center fw-bold mb-4">Request</h3>
+{{-- Using Tailwind CSS --}}
+<div class="min-h-screen flex items-center justify-center py-12 bg-gray-50">
+    <div class="w-full max-w-2xl bg-white rounded-lg shadow-md overflow-hidden">
+        <div class="px-6 py-8 md:px-10">
+            <h3 class="text-center text-2xl font-semibold mb-6">Request</h3>
+
             <form method="" action="">
-                <div class="mb-4">
-                    <label class="form-label fw-semibold">Service Type</label>
-                    <select id="serviceSelect" name="service_id" class="form-select input-underline text-description" aria-label="Service type">
+                <div class="mb-5">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Service Type</label>
+                    <select id="serviceSelect" name="service_id"
+                            class="block w-full bg-transparent border-b-2 border-gray-200 focus:border-indigo-500 focus:ring-0 py-2 pl-0 text-sm"
+                            aria-label="Service type">
                         <option value="">Select service</option>
                         @if(isset($allServices))
                             @foreach($allServices as $service)
@@ -20,20 +23,27 @@
                     </select>
                 </div>
 
-                <div class="mb-4">
-                    <label class="form-label fw-semibold">Package</label>
-                    <select id="packageSelect" name="package_id" class="form-select input-underline text-description" aria-label="Package" disabled>
+                <div class="mb-5">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Package</label>
+                    <select id="packageSelect" name="package_id"
+                            class="block w-full bg-transparent border-b-2 border-gray-200 focus:border-indigo-500 focus:ring-0 py-2 pl-0 text-sm"
+                            aria-label="Package" disabled>
                         <option value="">Select package</option>
                     </select>
                 </div>
 
-                <div class="mb-4">
-                    <label class="form-label fw-semibold">Request Details</label>
-                    <textarea name="description" rows="6" class="form-control input-underline" placeholder="Describe your request..."></textarea>
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Request Details</label>
+                    <textarea name="description" rows="6"
+                              class="block w-full border border-gray-200 rounded-md p-3 text-sm focus:border-indigo-500 focus:ring-1 focus:ring-indigo-100"
+                              placeholder="Describe your request..."></textarea>
                 </div>
 
-                <div class="mb-3">
-                    <button type="submit" class="request-btn w-100 py-2 text-white">Request Now</button>
+                <div>
+                    <button type="submit"
+                            class="w-full inline-flex items-center justify-center py-2 px-4 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-200">
+                        Request Now
+                    </button>
                 </div>
             </form>
         </div>
