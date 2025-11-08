@@ -64,7 +64,7 @@ class AdminController extends Controller
             'user_id' => 1 
         ]);
 
-        return redirect('/admin-project')->with('success', 'Project created successfully!');
+        return redirect('/admin-project');
     }
 
     public function destroyProject($id)
@@ -72,6 +72,32 @@ class AdminController extends Controller
         $project = Project::findOrFail($id);
         $project->delete();
         
-        return redirect()->back()->with('success', 'Project deleted successfully!');
+        return redirect()->back();
+    }
+
+    public function editProject($id)
+    {
+        $project = Project::findOrFail($id);
+        
+        return view('admin.edit-project', [
+            'project' => $project
+        ]);
+    }
+
+    public function updateProject(Request $request, $id)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+        ]);
+
+        $project = Project::findOrFail($id);
+        
+        $project->update([
+            'name' => $request->name,
+            'description' => $request->description,
+        ]);
+
+        return redirect('/admin-project');
     }
 }
