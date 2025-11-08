@@ -56,18 +56,22 @@
                                     </td>
                                     <td class="px-6 py-4">
                                         <div class="flex items-center justify-center gap-2">
-                                            <a href="{{ route('admin.project.edit', $project->id) }}"
+                                            <x-pages.action-link href="{{ route('admin.project.edit', $project->id) }}" color="yellow" textColor="white">
+                                                Edit
+                                            </x-pages.action-link>
+                                            {{-- <a href="{{ route('admin.project.edit', $project->id) }}"
                                                 class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200">
                                                 Edit
-                                            </a>
+                                            </a> --}}
                                             <form action="{{ route('admin.project.destroy', $project->id) }}" method="POST"
                                                 onsubmit="return confirm('Are you sure you want to delete this project?');">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit"
+                                                <x-pages.action-button color="red" textColor="white"> Delete </x-pages.action-button>
+                                                {{-- <button type="submit"
                                                     class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200">
                                                     Delete
-                                                </button>
+                                                </button> --}}
                                             </form>
                                         </div>
                                     </td>
