@@ -36,10 +36,10 @@ Route::get('/admin', [AdminController::class, 'index']);
 Route::get('/admin-request', [AdminController::class, 'manageRequests']);
 
 Route::get('/admin-project', [AdminController::class, 'manageProjects']);
-
-Route::get('/admin-pricing', [AdminController::class, 'managePricing']);
-
+Route::get('/admin-project/create', [AdminController::class, 'createProject'])->name('admin.project.create');
+Route::post('/admin-project', [AdminController::class, 'storeProject'])->name('admin.project.store');
 Route::delete('/admin-project/{id}', [AdminController::class, 'destroyProject'])->name('admin.project.destroy');
 
+Route::get('/admin-pricing', [AdminController::class, 'managePricing']);
 
 require __DIR__.'/auth.php';
