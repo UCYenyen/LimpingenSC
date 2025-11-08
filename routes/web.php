@@ -8,6 +8,7 @@ use App\Http\Controllers\PackageController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\UserController;
+use App\Http\Middleware\AdminPageGuard;
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
@@ -31,15 +32,15 @@ Route::get('/pricing', [PackageController::class, 'index']);
 Route::get('/projects', [ProjectController::class, 'index']);
 Route::get('/projects/{id}', [ProjectController::class, 'show']);
 
-Route::get('/admin', [AdminController::class, 'index']);
-
-Route::get('/admin-request', [AdminController::class, 'manageRequests']);
-
-Route::get('/admin-project', [AdminController::class, 'manageProjects']);
-Route::get('/admin-project/create', [AdminController::class, 'createProject'])->name('admin.project.create');
-Route::post('/admin-project', [AdminController::class, 'storeProject'])->name('admin.project.store');
-Route::delete('/admin-project/{id}', [AdminController::class, 'destroyProject'])->name('admin.project.destroy');
-
-Route::get('/admin-pricing', [AdminController::class, 'managePricing']);
+Route::middleware(AdminPageGuard::class)->group(function () {
+    Route::get('/admin', [AdminController::class, 'index']);
+    Route::get('/admin-request', [AdminController::class, 'manageRequests']);
+    Route::get('/admin-users', [AdminController::class, 'manageUsers']);
+    Route::get('/admin-project', [AdminController::class, 'manageProjects']);
+    Route::get('/admin-project/create', [AdminController::class, 'createProject'])->name('admin.project.create');
+    Route::post('/admin-project', [AdminController::class, 'storeProject'])->name('admin.project.store');
+    Route::delete('/admin-project/{id}', [AdminController::class, 'destroyProject'])->name('admin.project.destroy');
+    Route::get('/admin-pricing', [AdminController::class, 'managePricing']);
+});
 
 require __DIR__.'/auth.php';

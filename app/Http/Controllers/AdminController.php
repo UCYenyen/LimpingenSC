@@ -18,6 +18,16 @@ class AdminController extends Controller
         return view('admin.request');
     }
 
+    public function manageUsers()
+    {
+        $allUsers = User::paginate(8);
+
+        return view('admin.users', [
+            'allUsers' => $allUsers
+        ]);
+    }
+
+
     public function manageProjects()
     {
         $allProjects = Project::with('user')->paginate(3);
