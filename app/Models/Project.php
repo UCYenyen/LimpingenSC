@@ -14,6 +14,7 @@ class Project extends Model
         'name',
         'description',
         'image_url',
+        'image_public_id',
         'user_id',
     ];
     

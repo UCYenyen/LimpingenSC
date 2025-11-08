@@ -43,4 +43,20 @@ Route::middleware(AdminPageGuard::class)->group(function () {
     Route::get('/admin-pricing', [AdminController::class, 'managePricing']);
 });
 
+Route::get('/test-cloudinary', function () {
+    try {
+        $cloudName = config('cloudinary.cloud_name');
+        $apiKey = config('cloudinary.api_key');
+        $apiSecret = config('cloudinary.api_secret');
+        
+        return response()->json([
+            'cloud_name' => $cloudName ? 'Set ✓' : 'Not set ✗',
+            'api_key' => $apiKey ? 'Set ✓' : 'Not set ✗',
+            'api_secret' => $apiSecret ? 'Set ✓' : 'Not set ✗',
+            'cloud_name_value' => $cloudName,
+        ]);
+    } catch (\Exception $e) {
+        return response()->json(['error' => $e->getMessage()]);
+    }
+});
 require __DIR__.'/auth.php';
