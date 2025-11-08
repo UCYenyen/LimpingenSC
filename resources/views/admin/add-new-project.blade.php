@@ -20,7 +20,7 @@
                 @endif
 
                 <div class="bg-white rounded-lg shadow-lg p-8">
-                    <form action="{{ route('admin.project.store') }}" method="POST">
+                    <form action="{{ route('admin.project.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
 
                         <div class="mb-6">
@@ -39,6 +39,11 @@
                             <textarea id="description" name="description" rows="6"
                                 class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                                 placeholder="Enter project description" required>{{ old('description') }}</textarea>
+                        </div>
+
+                        <div>
+                            <label for="image">Project Image</label>
+                            <input type="file" name="image" id="image">
                         </div>
 
                         <div class="flex gap-3 justify-end">
