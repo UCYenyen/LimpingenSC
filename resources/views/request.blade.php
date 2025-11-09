@@ -50,7 +50,7 @@
     </div>
 </div>
 
-{{-- <script>
+<script>
         document.addEventListener("DOMContentLoaded", function () {
         const serviceSelect = document.getElementById("serviceSelect");
         const packageSelect = document.getElementById("packageSelect");
@@ -104,5 +104,5 @@
                 });
         });
     });
-    </script> --}}
+    </script>
 @endsection

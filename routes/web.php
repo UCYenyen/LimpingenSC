@@ -27,11 +27,14 @@ Route::get('/register', [UserController::class, 'register']);
 Route::get('/pricing', [PackageController::class, 'index']);
 Route::get('/projects', [ProjectController::class, 'index']);
 Route::get('/projects/{id}', [ProjectController::class, 'show']);
+Route::get('/services/{service}/packages', [ServiceController::class, 'getPackages']);
 
 Route::middleware(AdminPageGuard::class)->group(function () {
     Route::get('/admin', [AdminController::class, 'index']);
     Route::get('/admin-request', [AdminController::class, 'manageRequests']);
-    Route::get('/admin-users', [AdminController::class, 'manageUsers']);
+    Route::get('/admin-request/{id}/edit', [AdminController::class, 'editRequest'])->name('admin.request.edit');
+    Route::put('/admin-request/{id}', [AdminController::class, 'updateRequest'])->name('admin.request.update');
+    // Route::get('/admin-users', [AdminController::class, 'manageUsers']);
     Route::get('/admin-project', [AdminController::class, 'manageProjects']);
     Route::get('/admin-project/create', [AdminController::class, 'createProject'])->name('admin.project.create');
     Route::post('/admin-project', [AdminController::class, 'storeProject'])->name('admin.project.store');

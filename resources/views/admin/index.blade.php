@@ -4,7 +4,7 @@
 @section('content')
 <div class="w-screen min-h-screen pt-[10vh] sm:pt-[7vh] gap-4 flex flex-col items-center justify-center p-8">
     <h1 class="text-4xl font-semibold max-w-6xl w-full text-start">Welcome, {{$adminName}}</h1>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-6xl">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-6xl">
         <a href="/admin-request" class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 p-8 flex flex-col items-center justify-center group">
             <div class="text-blue-600 mb-4">
                 <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -15,7 +15,7 @@
             <p class="text-gray-600 mt-2 text-center">Click Here to Manage Request</p>
         </a>
 
-         <a href="/admin-users" class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 p-8 flex flex-col items-center justify-center group">
+         {{-- <a href="/admin-users" class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 p-8 flex flex-col items-center justify-center group">
             <div class="text-blue-600 mb-4">
                 <svg class="w-16 h-16 rounded-full border-2 border-gray-200 p-2 bg-white text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 12a4 4 0 100-8 4 4 0 000 8z" />
@@ -24,7 +24,7 @@
             </div>
             <h3 class="text-2xl font-bold text-gray-800 group-hover:text-blue-600 transition-colors">Users</h3>
             <p class="text-gray-600 mt-2 text-center">Click Here to Manage Users</p>
-        </a>
+        </a> --}}
 
 
     

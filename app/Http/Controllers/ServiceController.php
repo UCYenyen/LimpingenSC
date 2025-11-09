@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-// use App\Models\Package;
+use App\Models\Package;
 use App\Models\Service;
 
 class ServiceController extends Controller
@@ -14,6 +14,12 @@ class ServiceController extends Controller
         return view('request', [
             'allServices' => $allServices
         ]);
+    }
+     public function getPackages(Service $service)
+    {
+        return response()->json(
+            $service->packages()->get(['id', 'name', 'price', 'description'])
+        );
     }
 
     // public function getPackages($id)

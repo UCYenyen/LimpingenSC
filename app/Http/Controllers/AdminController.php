@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Project;
 use App\Models\User;
+use App\Models\Request as UserRequest;
 use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -20,7 +21,12 @@ class AdminController extends Controller
 
     public function manageRequests()
     {
-        return view('admin.request');
+        // Menggunakan eager loading untuk menghindari N+1 query problem
+        $allRequests = UserRequest::with(['user', 'package'])->paginate(10);
+        
+        return view('admin.request', [
+            'allRequests' => $allRequests
+        ]);
     }
 
     public function manageUsers()
