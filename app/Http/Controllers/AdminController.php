@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Project;
 use App\Models\User;
+use App\Models\Package;
 use App\Models\Request as UserRequest;
+use App\Models\Service;
 use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -50,7 +52,11 @@ class AdminController extends Controller
 
     public function managePricing()
     {
-        return view('admin.pricing');
+        $allPackages = Package::with('service')->paginate(10);
+        
+        return view('admin.pricing', [
+            'allPackages' => $allPackages
+        ]);
     }
 
     public function createProject()
@@ -171,5 +177,31 @@ class AdminController extends Controller
         }
 
         return redirect()->back();
+    }
+    public function createPackage()
+    {
+        $allServices = Service::all();
+        return view('admin.add-new-package', [
+            'allServices' => $allServices
+        ]);
+    }
+
+    public function storePackage(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'price' => 'required|string',
+            'service_id' => 'required|exists:services,id',
+        ]);
+
+        Package::create([
+            'name' => $request->name,
+            'description' => $request->description,
+            'price' => $request->price,
+            'service_id' => $request->service_id,
+        ]);
+
+        return redirect('/admin-pricing');
     }
 }

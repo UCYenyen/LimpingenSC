@@ -34,7 +34,6 @@ Route::middleware(AdminPageGuard::class)->group(function () {
     Route::get('/admin-request', [AdminController::class, 'manageRequests']);
     Route::get('/admin-request/{id}/edit', [AdminController::class, 'editRequest'])->name('admin.request.edit');
     Route::put('/admin-request/{id}', [AdminController::class, 'updateRequest'])->name('admin.request.update');
-    // Route::get('/admin-users', [AdminController::class, 'manageUsers']);
     Route::get('/admin-project', [AdminController::class, 'manageProjects']);
     Route::get('/admin-project/create', [AdminController::class, 'createProject'])->name('admin.project.create');
     Route::post('/admin-project', [AdminController::class, 'storeProject'])->name('admin.project.store');
@@ -43,5 +42,7 @@ Route::middleware(AdminPageGuard::class)->group(function () {
     Route::delete('/admin-project/{id}/delete-image', [AdminController::class, 'deleteProjectImage'])->name('admin.project.delete-image');
     Route::delete('/admin-project/{id}', [AdminController::class, 'destroyProject'])->name('admin.project.destroy');
     Route::get('/admin-pricing', [AdminController::class, 'managePricing']);
+    Route::get('/admin-pricing/create', [AdminController::class, 'createPackage'])->name('admin.package.create');
+    Route::post('/admin-pricing', [AdminController::class, 'storePackage'])->name('admin.package.store');
 });
 require __DIR__.'/auth.php';
