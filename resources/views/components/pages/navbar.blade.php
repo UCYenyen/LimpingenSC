@@ -31,12 +31,13 @@
             <x-pages.navigation-link link="/projects" className="">Projects</x-pages.navigation-link>
             <x-pages.navigation-link link="/pricing" className="">Pricing</x-pages.navigation-link>
             @auth
-                <x-pages.logout-btn />
                 @if (auth()->user()->role == 'admin')
                     <x-pages.navigation-link link="/admin" className="">Admin</x-pages.navigation-link>
                 @endif
+                <x-pages.logout-btn />
+            @else
+                <a class="py-2 px-4 rounded-2 text-white" style="background-color: #5D71D6" href="/login">Login</a>
             @endauth
-            <a class="py-2 px-4 rounded-2 text-white" style="background-color: #5D71D6" href="/login">Login</a>
         </div>
     </div>
 </header>

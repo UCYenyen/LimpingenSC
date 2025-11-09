@@ -2,52 +2,55 @@
 @section('title', 'Add New Project')
 
 @section('content')
-    <div class="flex justify-center items-center">
-        <div class="w-screen min-h-screen justify-center max-w-7xl flex flex-col items-center p-8">
+    <div class="flex justify-center items-center min-h-screen">
+        <div class="w-screen min-h-screen justify-center max-w-7xl flex flex-col items-center p-4 md:p-8 pt-[12vh] md:pt-[10vh]">
             <div class="w-full max-w-2xl">
-                <div class="mb-8">
-                    <h1 class="text-4xl font-bold text-gray-800 text-center">Add New Project</h1>
+                <div class="mb-6 md:mb-8">
+                    <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 text-center">Add New Project</h1>
                 </div>
 
-                <div class="bg-white rounded-lg shadow-lg p-8">
+                <div class="bg-white rounded-lg shadow-lg p-4 md:p-6 lg:p-8">
                     <form action="{{ route('admin.project.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
 
-                        <div class="mb-6">
+                        <div class="mb-4 md:mb-6">
                             <label for="name" class="block text-sm font-semibold text-gray-700 mb-2">
                                 Project Name <span class="text-red-500">*</span>
                             </label>
                             <input type="text" id="name" name="name" value="{{ old('name') }}"
-                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                class="w-full px-3 md:px-4 py-2 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                                 placeholder="Enter project name" required>
                         </div>
 
-                        <div class="mb-6">
+                        <div class="mb-4 md:mb-6">
                             <label for="description" class="block text-sm font-semibold text-gray-700 mb-2">
                                 Description <span class="text-red-500">*</span>
                             </label>
                             <textarea id="description" name="description" rows="6"
-                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                class="w-full px-3 md:px-4 py-2 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                                 placeholder="Enter project description" required>{{ old('description') }}</textarea>
                         </div>
-                        <div class="mb-6">
+
+                        <div class="mb-4 md:mb-6">
                             <label for="image" class="block text-sm font-semibold text-gray-700 mb-2">
-                                Project Image
+                                Project Image <span class="text-red-500">*</span>
                             </label>
                             <input type="file" id="image" name="image"
                                 accept="image/jpeg,image/png,image/jpg,image/gif,image/svg+xml,image/webp"
-                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                class="w-full px-3 md:px-4 py-2 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                required>
                             @error('image')
-                                <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                                <p class="mt-2 text-xs md:text-sm text-red-600">{{ $message }}</p>
                             @enderror
                         </div>
-                        <div class="flex gap-3 justify-end">
+
+                        <div class="flex flex-col sm:flex-row gap-3 justify-end">
                             <a href="/admin-project"
-                                class="bg-gray-500 hover:bg-gray-600 text-white font-semibold py-2 px-6 rounded-lg transition-colors duration-200">
+                                class="bg-gray-500 hover:bg-gray-600 text-white font-semibold py-2 px-4 md:px-6 rounded-lg transition-colors duration-200 text-center text-sm md:text-base">
                                 Cancel
                             </a>
                             <button type="submit"
-                                class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors duration-200">
+                                class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 md:px-6 rounded-lg transition-colors duration-200 text-sm md:text-base">
                                 Create Project
                             </button>
                         </div>
