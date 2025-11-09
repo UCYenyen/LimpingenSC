@@ -1,4 +1,4 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app')
 @section('title', 'Reset Password')
 @section('content')
     <form method="POST" action="{{ route('password.store') }}">
@@ -38,4 +38,4 @@
             </x-primary-button>
         </div>
     </form>
-@endsection
+@endsection --}}

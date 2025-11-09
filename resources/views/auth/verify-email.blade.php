@@ -1,4 +1,4 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app')
 @section('title', 'Verify E-Mail')
 @section('content')
     <div class="mb-4 text-sm text-gray-600">
@@ -30,4 +30,4 @@
             </button>
         </form>
     </div>
-@endsection
+@endsection --}}
