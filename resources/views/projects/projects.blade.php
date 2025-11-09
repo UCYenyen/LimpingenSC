@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title', 'Projects')
 @section('content')
-    <div class="relative overflow-hidden flex flex-col items-center justify-center pt-[15vh]">
+    <div class="relative overflow-hidden min-h-screen flex flex-col items-center justify-center pt-[15vh]">
         <img src="/images/login/circle-filler.svg" class="absolute bottom-[-30%] left-[-30%] sm:bottom-[-55%] sm:left-[-15%]"
             alt="">
         <img src="/images/login/circle-border.svg" class="absolute bottom-[-25%] left-[-60%] sm:bottom-[-35%] sm:left-[-30%]"
