@@ -24,27 +24,51 @@ class AdminController extends Controller
         // Menggunakan eager loading untuk menghindari N+1 query problem
         $allRequests = UserRequest::with(['user', 'package'])->paginate(10);
         
-        return view('admin.request', [
+        return view('admin.request.index', [
             'allRequests' => $allRequests
         ]);
+    }
+     public function viewRequestDetail($id)
+    {
+        $requestDetail = UserRequest::with(['user', 'package'])->findOrFail($id);
+
+        return view('admin.request.detail', [
+            'request' => $requestDetail
+        ]);
+    }
+
+    public function editRequest($id)
+    {
+        $request = UserRequest::with(['user', 'package'])->findOrFail($id);
+
+        return view('admin.request.edit', [
+            'request' => $request
+        ]);
+    }
+
+    public function updateRequest(Request $request, $id)
+    {
+        $userRequest = UserRequest::findOrFail($id);
+
+        $request->validate([
+            'status' => 'required|in:pending,ongoing,rejected,done',
+            'description' => 'required|string',
+        ]);
+
+        $userRequest->update([
+            'status' => $request->status,
+            'description' => $request->description,
+        ]);
+
+        return redirect()->route('request-detail', $id)->with('success', 'Request updated successfully!');
     }
 
     public function manageUsers()
     {
         $allUsers = User::paginate(8);
 
-        return view('admin.users', [
+        return view('admin.user.index', [
             'allUsers' => $allUsers
-        ]);
-    }
-
-
-    public function manageProjects()
-    {
-        $allProjects = Project::with('user')->paginate(3);
-
-        return view('admin.project', [
-            'allProjects' => $allProjects
         ]);
     }
 
@@ -55,8 +79,17 @@ class AdminController extends Controller
 
     public function createProject()
     {
-        return view('admin.add-new-project');
+        return view('admin.project.add-new-project');
     }
+    public function manageProjects()
+    {
+        $allProjects = Project::with('user')->paginate(3);
+
+        return view('admin.project.index', [
+            'allProjects' => $allProjects
+        ]);
+    }
+    
     public function storeProject(Request $request)
     {
         if ($request->hasFile('image')) {
@@ -108,11 +141,12 @@ class AdminController extends Controller
 
         return redirect()->back();
     }
+
     public function editProject($id)
     {
         $project = Project::findOrFail($id);
 
-        return view('admin.edit-project', [
+        return view('admin.project.edit-project', [
             'project' => $project
         ]);
     }
