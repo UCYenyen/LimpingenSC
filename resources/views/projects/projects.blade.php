@@ -30,7 +30,7 @@
             @endforeach
         </div>
 
-        <div class="flex flex-col gap-4 justify-center items-center mb-24 w-[80%] relative z-10">
+        <div class="flex gap-4 justify-end items-center mb-24 w-[80%] relative z-10">
             {{ $allProjects->links() }}
         </div>
     </div>
