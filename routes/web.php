@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 // use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -22,6 +23,7 @@ use App\Http\Middleware\RequireLogIn;
 // });
 
 Route::get('/', [HomeController::class, 'index']);
+Route::get('/unauthorized', [AdminController::class, 'unauthorized']);
 Route::get('/login', [UserController::class, 'login']);
 Route::get('/register', [UserController::class, 'register']);
 Route::get('/pricing', [PackageController::class, 'index']);

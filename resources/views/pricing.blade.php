@@ -3,13 +3,13 @@
 
 @section('content')
     <div class="relative overflow-hidden flex justify-center items-center min-h-screen py-16 md:py-24">
-        <img src="/images/login/circle-filler.svg" class="absolute bottom-[-30%] left-[-30%] sm:bottom-[-55%] sm:left-[-15%]"
+        <img src="/images/login/circle-filler.svg" class="absolute bottom-[-14rem] left-[-30%] sm:bottom-[-32rem] sm:left-[-15%]"
             alt="">
-        <img src="/images/login/circle-border.svg" class="absolute bottom-[-25%] left-[-60%] sm:bottom-[-35%] sm:left-[-30%]"
+        <img src="/images/login/circle-border.svg" class="absolute bottom-[-10rem] left-[-60%] sm:bottom-[-20rem] sm:left-[-30%]"
             alt="">
         <img src="/images/login/circle-filler.svg"
-            class="absolute top-[-22.5%] right-[-40%] sm:top-[-40%] sm:right-[-20%] rotate-[180deg]" alt="">
-        <img src="/images/login/circle-border.svg" class="absolute top-[-25%] right-[-25%] sm:top-[-45%] sm:right-[-10%]"
+            class="absolute top-[-14rem] right-[-45%] sm:top-[-25rem] sm:right-[-20%] rotate-[180deg]" alt="">
+        <img src="/images/login/circle-border.svg" class="absolute top-[-15rem] right-[-25%] sm:top-[-30rem] sm:right-[-10%]"
             alt="">
 
         <div class="w-[80%] flex flex-col gap-12 md:gap-16 relative z-10 my-8">

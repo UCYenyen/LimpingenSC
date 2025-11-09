@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
+    public function unauthorized()
+    {    
+        return view('unauthorized');
+    }
     public function index()
     {
         $currentUser = Auth::user();
@@ -25,12 +29,12 @@ class AdminController extends Controller
     {
         // Menggunakan eager loading untuk menghindari N+1 query problem
         $allRequests = UserRequest::with(['user', 'package'])->paginate(10);
-        
+
         return view('admin.request.index', [
             'allRequests' => $allRequests
         ]);
     }
-     public function viewRequestDetail($id)
+    public function viewRequestDetail($id)
     {
         $requestDetail = UserRequest::with(['user', 'package'])->findOrFail($id);
 
@@ -77,7 +81,7 @@ class AdminController extends Controller
     public function managePricing()
     {
         $allPackages = Package::with('service')->paginate(10);
-        
+
         return view('admin.package.index', [
             'allPackages' => $allPackages
         ]);
@@ -95,7 +99,7 @@ class AdminController extends Controller
             'allProjects' => $allProjects
         ]);
     }
-    
+
     public function storeProject(Request $request)
     {
         if ($request->hasFile('image')) {
@@ -242,7 +246,7 @@ class AdminController extends Controller
     {
         $package = Package::findOrFail($id);
         $allServices = Service::all();
-        
+
         return view('admin.package.edit', [
             'package' => $package,
             'allServices' => $allServices
@@ -252,7 +256,7 @@ class AdminController extends Controller
     public function updatePackage(Request $request, $id)
     {
         $package = Package::findOrFail($id);
-        
+
         $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'required|string',
