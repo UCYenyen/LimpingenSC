@@ -44,5 +44,8 @@ Route::middleware(AdminPageGuard::class)->group(function () {
     Route::get('/admin-pricing', [AdminController::class, 'managePricing']);
     Route::get('/admin-pricing/create', [AdminController::class, 'createPackage'])->name('admin.package.create');
     Route::post('/admin-pricing', [AdminController::class, 'storePackage'])->name('admin.package.store');
+    Route::get('/admin-pricing/{id}/edit', [AdminController::class, 'editPackage'])->name('admin.package.edit');
+    Route::put('/admin-pricing/{id}', [AdminController::class, 'updatePackage'])->name('admin.package.update');
+    Route::delete('/admin-pricing/{id}', [AdminController::class, 'destroyPackage'])->name('admin.package.destroy');
 });
 require __DIR__.'/auth.php';

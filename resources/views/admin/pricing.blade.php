@@ -6,7 +6,7 @@
         <div class="w-full max-w-7xl">
             <div class="mb-8 flex justify-between items-center">
                 <div>
-                    <h1 class="text-4xl font-bold text-gray-800">Manage Packages</h1>
+                    <h1 class="text-4xl font-bold text-gray-800">Manage Pricing</h1>
                     <p class="text-gray-600 mt-2">Total packages: {{ $allPackages->total() }}</p>
                 </div>
                 <div class="flex gap-3">
@@ -55,10 +55,10 @@
                                     </td>
                                     <td class="px-6 py-4">
                                         <div class="flex items-center justify-center gap-2">
-                                            <x-pages.action-link href="#" color="yellow" textColor="white">
+                                            <x-pages.action-link href="{{ route('admin.package.edit', $package->id) }}" color="yellow" textColor="white">
                                                 Edit
                                             </x-pages.action-link>
-                                            <form action="#" method="POST"
+                                            <form action="{{ route('admin.package.destroy', $package->id) }}" method="POST"
                                                 onsubmit="return confirm('Are you sure you want to delete this package?');">
                                                 @csrf
                                                 @method('DELETE')

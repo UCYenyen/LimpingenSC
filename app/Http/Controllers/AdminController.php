@@ -204,4 +204,43 @@ class AdminController extends Controller
 
         return redirect('/admin-pricing');
     }
+    public function editPackage($id)
+    {
+        $package = Package::findOrFail($id);
+        $allServices = Service::all();
+        
+        return view('admin.edit-package', [
+            'package' => $package,
+            'allServices' => $allServices
+        ]);
+    }
+
+    public function updatePackage(Request $request, $id)
+    {
+        $package = Package::findOrFail($id);
+        
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'price' => 'required|string',
+            'service_id' => 'required|exists:services,id',
+        ]);
+
+        $package->update([
+            'name' => $request->name,
+            'description' => $request->description,
+            'price' => $request->price,
+            'service_id' => $request->service_id,
+        ]);
+
+        return redirect('/admin-pricing');
+    }
+
+    public function destroyPackage($id)
+    {
+        $package = Package::findOrFail($id);
+        $package->delete();
+
+        return redirect()->back();
+    }
 }
