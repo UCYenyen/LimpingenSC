@@ -69,6 +69,13 @@ class AdminController extends Controller
         return redirect()->route('request-detail', $id);
     }
 
+    public function destroyRequest($id)
+    {
+        $userRequest = UserRequest::findOrFail($id);
+        $userRequest->delete();
+        return redirect()->back();
+    }
+
     public function manageUsers()
     {
         $allUsers = User::paginate(8);

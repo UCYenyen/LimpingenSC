@@ -56,10 +56,18 @@
                                 <x-pages.action-link href="{{ route('request-detail', $request->id) }}" color="blue">
                                     View
                                 </x-pages.action-link>
-                                <x-pages.action-link href="{{ route('admin.request.edit', $request->id) }}"
-                                    color="yellow">
+                                <x-pages.action-link href="{{ route('admin.request.edit', $request->id) }}" color="yellow">
                                     Edit
                                 </x-pages.action-link>
+                                <form action="{{ route('admin.request.destroy', $request->id) }}" method="POST"
+                                    onsubmit="return confirm('Are you sure you want to delete this request?');"
+                                    class="flex-1">
+                                    @csrf
+                                    @method('DELETE')
+                                    <x-pages.action-button color="red">
+                                        Delete
+                                    </x-pages.action-button>
+                                </form>
                             </div>
                         </div>
                     @empty
@@ -118,13 +126,22 @@
                                     </td>
                                     <td class="px-6 py-4">
                                         <div class="flex items-center justify-center gap-2">
-                                            <x-pages.action-link href="{{ route('request-detail', $request->id) }}" color="blue">
+                                            <x-pages.action-link href="{{ route('request-detail', $request->id) }}"
+                                                color="blue">
                                                 View
                                             </x-pages.action-link>
                                             <x-pages.action-link href="{{ route('admin.request.edit', $request->id) }}"
                                                 color="yellow">
                                                 Edit
                                             </x-pages.action-link>
+                                            <form action="{{ route('admin.request.destroy', $request->id) }}" method="POST"
+                                                onsubmit="return confirm('Are you sure you want to delete this request?');">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200">
+                                                    Delete
+                                                </button>
+                                            </form>
                                         </div>
                                     </td>
                                 </tr>

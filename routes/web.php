@@ -49,6 +49,7 @@ Route::middleware(AdminPageGuard::class)->group(function () {
     Route::put('/admin-project/{id}', [AdminController::class, 'updateProject'])->name('admin.project.update');
     Route::delete('/admin-project/{id}/delete-image', [AdminController::class, 'deleteProjectImage'])->name('admin.project.delete-image');
     Route::delete('/admin-project/{id}', [AdminController::class, 'destroyProject'])->name('admin.project.destroy');
+    Route::delete('/admin-request/{id}', [AdminController::class, 'destroyRequest'])->name('admin.request.destroy');
     Route::get('/admin-package', [AdminController::class, 'managePricing']);
     Route::get('/admin-package/create', [AdminController::class, 'createPackage'])->name('admin.package.create');
     Route::post('/admin-package', [AdminController::class, 'storePackage'])->name('admin.package.store');
