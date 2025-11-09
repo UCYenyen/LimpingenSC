@@ -62,7 +62,7 @@ class AdminController extends Controller
             'description' => $request->description,
         ]);
 
-        return redirect()->route('request-detail', $id)->with('success', 'Request updated successfully!');
+        return redirect()->route('request-detail', $id);
     }
 
     public function manageUsers()
@@ -78,14 +78,14 @@ class AdminController extends Controller
     {
         $allPackages = Package::with('service')->paginate(10);
         
-        return view('admin.pricing', [
+        return view('admin.package.index', [
             'allPackages' => $allPackages
         ]);
     }
 
     public function createProject()
     {
-        return view('admin.project.add-new-project');
+        return view('admin.project.add');
     }
     public function manageProjects()
     {
@@ -152,7 +152,7 @@ class AdminController extends Controller
     {
         $project = Project::findOrFail($id);
 
-        return view('admin.project.edit-project', [
+        return view('admin.project.edit', [
             'project' => $project
         ]);
     }
@@ -215,7 +215,7 @@ class AdminController extends Controller
     public function createPackage()
     {
         $allServices = Service::all();
-        return view('admin.add-new-package', [
+        return view('admin.package.add', [
             'allServices' => $allServices
         ]);
     }
@@ -236,14 +236,14 @@ class AdminController extends Controller
             'service_id' => $request->service_id,
         ]);
 
-        return redirect('/admin-pricing');
+        return redirect('/admin-package');
     }
     public function editPackage($id)
     {
         $package = Package::findOrFail($id);
         $allServices = Service::all();
         
-        return view('admin.edit-package', [
+        return view('admin.package.edit', [
             'package' => $package,
             'allServices' => $allServices
         ]);
@@ -267,7 +267,7 @@ class AdminController extends Controller
             'service_id' => $request->service_id,
         ]);
 
-        return redirect('/admin-pricing');
+        return redirect('/admin-package');
     }
 
     public function destroyPackage($id)

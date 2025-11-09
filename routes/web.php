@@ -34,7 +34,6 @@ Route::middleware(RequireLogIn::class)->group(function () {
     Route::get('/request', [RequestController::class, 'request']);
 });
 
-
 Route::middleware(AdminPageGuard::class)->group(function () {
     Route::get('/admin', [AdminController::class, 'index']);
     Route::get('/admin-request', [AdminController::class, 'manageRequests']);
@@ -48,11 +47,11 @@ Route::middleware(AdminPageGuard::class)->group(function () {
     Route::put('/admin-project/{id}', [AdminController::class, 'updateProject'])->name('admin.project.update');
     Route::delete('/admin-project/{id}/delete-image', [AdminController::class, 'deleteProjectImage'])->name('admin.project.delete-image');
     Route::delete('/admin-project/{id}', [AdminController::class, 'destroyProject'])->name('admin.project.destroy');
-    Route::get('/admin-pricing', [AdminController::class, 'managePricing']);
-    Route::get('/admin-pricing/create', [AdminController::class, 'createPackage'])->name('admin.package.create');
-    Route::post('/admin-pricing', [AdminController::class, 'storePackage'])->name('admin.package.store');
-    Route::get('/admin-pricing/{id}/edit', [AdminController::class, 'editPackage'])->name('admin.package.edit');
-    Route::put('/admin-pricing/{id}', [AdminController::class, 'updatePackage'])->name('admin.package.update');
-    Route::delete('/admin-pricing/{id}', [AdminController::class, 'destroyPackage'])->name('admin.package.destroy');
+    Route::get('/admin-package', [AdminController::class, 'managePricing']);
+    Route::get('/admin-package/create', [AdminController::class, 'createPackage'])->name('admin.package.create');
+    Route::post('/admin-package', [AdminController::class, 'storePackage'])->name('admin.package.store');
+    Route::get('/admin-package/{id}/edit', [AdminController::class, 'editPackage'])->name('admin.package.edit');
+    Route::put('/admin-package/{id}', [AdminController::class, 'updatePackage'])->name('admin.package.update');
+    Route::delete('/admin-package/{id}', [AdminController::class, 'destroyPackage'])->name('admin.package.destroy');
 });
 require __DIR__ . '/auth.php';
