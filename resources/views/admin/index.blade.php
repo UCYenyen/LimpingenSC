@@ -3,7 +3,7 @@
 
 @section('content')
 <div class="w-screen min-h-screen pt-[10vh] sm:pt-[7vh] gap-4 flex flex-col items-center justify-center p-8">
-    <h1 class="text-4xl font-semibold max-w-6xl w-full text-start">Welcome, {{$adminName}}</h1>
+    <h1 class="text-4xl font-semibold max-w-6xl w-full text-center mb-8">Welcome, {{$adminName}}</h1>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-6xl">
         <a href="/admin-request" class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 p-8 flex flex-col items-center justify-center group">
             <div class="text-blue-600 mb-4">

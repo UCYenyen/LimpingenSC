@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Project;
 use App\Models\User;
+use App\Models\Package;
 use App\Models\Request as UserRequest;
+use App\Models\Service;
 use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -74,7 +76,11 @@ class AdminController extends Controller
 
     public function managePricing()
     {
-        return view('admin.pricing');
+        $allPackages = Package::with('service')->paginate(10);
+        
+        return view('admin.pricing', [
+            'allPackages' => $allPackages
+        ]);
     }
 
     public function createProject()
@@ -203,6 +209,71 @@ class AdminController extends Controller
                 'image_public_id' => "No_Image_Available_zt8dja",
             ]);
         }
+
+        return redirect()->back();
+    }
+    public function createPackage()
+    {
+        $allServices = Service::all();
+        return view('admin.add-new-package', [
+            'allServices' => $allServices
+        ]);
+    }
+
+    public function storePackage(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'price' => 'required|string',
+            'service_id' => 'required|exists:services,id',
+        ]);
+
+        Package::create([
+            'name' => $request->name,
+            'description' => $request->description,
+            'price' => $request->price,
+            'service_id' => $request->service_id,
+        ]);
+
+        return redirect('/admin-pricing');
+    }
+    public function editPackage($id)
+    {
+        $package = Package::findOrFail($id);
+        $allServices = Service::all();
+        
+        return view('admin.edit-package', [
+            'package' => $package,
+            'allServices' => $allServices
+        ]);
+    }
+
+    public function updatePackage(Request $request, $id)
+    {
+        $package = Package::findOrFail($id);
+        
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'price' => 'required|string',
+            'service_id' => 'required|exists:services,id',
+        ]);
+
+        $package->update([
+            'name' => $request->name,
+            'description' => $request->description,
+            'price' => $request->price,
+            'service_id' => $request->service_id,
+        ]);
+
+        return redirect('/admin-pricing');
+    }
+
+    public function destroyPackage($id)
+    {
+        $package = Package::findOrFail($id);
+        $package->delete();
 
         return redirect()->back();
     }
