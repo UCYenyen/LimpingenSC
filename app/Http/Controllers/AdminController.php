@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Auth;
 class AdminController extends Controller
 {
     public function unauthorized()
-    {    
+    {
         return view('unauthorized');
     }
     public function index()
@@ -91,9 +91,20 @@ class AdminController extends Controller
     {
         return view('admin.project.add');
     }
-    public function manageProjects()
+    public function manageProjects(Request $request)
     {
-        $allProjects = Project::with('user')->paginate(3);
+        $query = Project::with('user');
+
+        if ($request->has('search') && $request->search != '') {
+            $searchTerm = $request->search;
+
+            $query->where(function ($q) use ($searchTerm) {
+                $q->where('name', 'like', '%' . $searchTerm . '%')
+                    ->orWhere('description', 'like', '%' . $searchTerm . '%');
+            });
+        }
+
+        $allProjects = $query->paginate(3)->appends(['search' => $request->search]);
 
         return view('admin.project.index', [
             'allProjects' => $allProjects
