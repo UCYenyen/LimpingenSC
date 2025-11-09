@@ -30,19 +30,17 @@
                                 class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                                 placeholder="Enter project description" required>{{ old('description') }}</textarea>
                         </div>
-
-                        {{-- <div>
-                            <label for="image">Project Image</label>
-                            <input type="file" name="image" id="image">
-                        </div> --}}
-                        <input type="file" id="image" name="image"
-                            accept="image/jpeg,image/png,image/jpg,image/gif,image/svg+xml,image/webp"
-                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                            required>
-                        @error('image')
-                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
-                        @enderror
-
+                        <div class="mb-6">
+                            <label for="image" class="block text-sm font-semibold text-gray-700 mb-2">
+                                Project Image
+                            </label>
+                            <input type="file" id="image" name="image"
+                                accept="image/jpeg,image/png,image/jpg,image/gif,image/svg+xml,image/webp"
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            @error('image')
+                                <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
                         <div class="flex gap-3 justify-end">
                             <a href="/admin-project"
                                 class="bg-gray-500 hover:bg-gray-600 text-white font-semibold py-2 px-6 rounded-lg transition-colors duration-200">
