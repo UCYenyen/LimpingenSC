@@ -13,6 +13,7 @@
                                 <th class="px-6 py-4 text-left text-sm font-semibold">Name</th>
                                 <th class="px-6 py-4 text-left text-sm font-semibold">Email</th>
                                 <th class="px-6 py-4 text-left text-sm font-semibold">Role</th>
+                                <th class="px-6 py-4 text-left text-sm font-semibold">Actions</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-200">
@@ -29,6 +30,12 @@
                                             class="text-sm font-medium {{ $user->role === 'admin' ? 'text-red-600' : 'text-green-600' }}">
                                             {{ ucfirst($user->role) }}
                                         </span>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <x-pages.action-link href="/"
+                                            color="yellow" textColor="white">
+                                            Edit
+                                        </x-pages.action-link>
                                     </td>
                                 </tr>
                             @empty

@@ -48,32 +48,31 @@ class AdminController extends Controller
     {
         return view('admin.add-new-project');
     }
-    public function storeProject(Request $request)  // Line 51: Method untuk menyimpan project baru, terima Request object
+    public function storeProject(Request $request)
     {
-        $request->validate([  // Line 53: Validasi input dari form
-            'name' => 'required|string|max:255',  // Line 54: name wajib, string, max 255 karakter
-            'description' => 'required|string',  // Line 55: description wajib, string
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',  // Line 56: image optional, harus image, max 2MB
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
         ]);
+
         $uploadedFile = $request->file('image');
-        $uploadResult = Cloudinary::upload($uploadedFile->getRealPath(), [
+        
+        // Use Cloudinary's uploadApi()->upload() method
+        $uploadResult = Cloudinary::uploadApi()->upload($uploadedFile->getRealPath(), [
             'folder' => 'limpingen/projects',
-            'upload_preset' => config('cloudinary.upload_preset'), // Gunakan upload preset dari config
             'resource_type' => 'image',
         ]);
 
-        Project::create([  // Line 95: Buat record baru di database table projects
-            'name' => $request->name,  // Line 96: Isi kolom name
-            'description' => $request->description,  // Line 97: Isi kolom description
-            'image_url' => $uploadResult->getSecurePath(),  // Line 98: Isi kolom image_url
-            'image_public_id' => $uploadResult->getPublicId(),
-            'user_id' => Auth::id() ?? 1  // Line 99: Isi user_id dengan id user login, atau 1 jika tidak ada
-            // Auth::id() return: int|null (ID user yang login atau null)
+        Project::create([
+            'name' => $request->name,
+            'description' => $request->description,
+            'image_url' => $uploadResult['secure_url'],
+            'image_public_id' => $uploadResult['public_id'],
+            'user_id' => Auth::id() ?? 1
         ]);
-        // Return dari create: Project model instance yang baru dibuat
 
-        return redirect('/admin-project')->with('success', 'Project created successfully!');  // Line 102: Redirect ke /admin-project dengan success message
-        // Return: RedirectResponse dengan flash message
+        return redirect('/admin-project')->with('success', 'Project created successfully!');
     }
 
     public function destroyProject($id)

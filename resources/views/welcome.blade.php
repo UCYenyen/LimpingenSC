@@ -66,9 +66,12 @@
                     <x-slot:id>
                         {{ $project->id }}
                     </x-slot:id>
-                    <x-slot:src>
-                        {{ $project->image_url }}
-                    </x-slot:src>
+                    <x-slot:image_public_id>
+                        {{ $project->image_public_id }}
+                    </x-slot:image_public_id>
+                    <x-slot:alt>
+                        {{ $project->name }}
+                    </x-slot:alt>
                     <x-slot:name>
                         {{ $project->name }}
                     </x-slot:name>

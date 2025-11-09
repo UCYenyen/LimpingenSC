@@ -39,6 +39,8 @@ Route::middleware(AdminPageGuard::class)->group(function () {
     Route::get('/admin-project', [AdminController::class, 'manageProjects']);
     Route::get('/admin-project/create', [AdminController::class, 'createProject'])->name('admin.project.create');
     Route::post('/admin-project', [AdminController::class, 'storeProject'])->name('admin.project.store');
+    Route::get('/admin-project/{id}/edit', [AdminController::class, 'editProject'])->name('admin.project.edit');
+    Route::put('/admin-project/{id}', [AdminController::class, 'updateProject'])->name('admin.project.update');
     Route::delete('/admin-project/{id}', [AdminController::class, 'destroyProject'])->name('admin.project.destroy');
     Route::get('/admin-pricing', [AdminController::class, 'managePricing']);
 });
