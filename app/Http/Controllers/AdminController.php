@@ -12,7 +12,10 @@ class AdminController extends Controller
 {
     public function index()
     {
-        return view('admin.index');
+        $currentUser = Auth::user();
+        return view('admin.index', [
+            'adminName' => $currentUser->name
+        ]);
     }
 
     public function manageRequests()

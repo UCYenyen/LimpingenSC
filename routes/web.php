@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\ProfileController;
+// use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PackageController;
@@ -21,14 +21,10 @@ use App\Http\Middleware\AdminPageGuard;
 // });
 
 Route::get('/', [HomeController::class, 'index']);
-
 Route::get('/request', [ServiceController::class, 'request']);
-
 Route::get('/login', [UserController::class, 'login']);
 Route::get('/register', [UserController::class, 'register']);
-
 Route::get('/pricing', [PackageController::class, 'index']);
-
 Route::get('/projects', [ProjectController::class, 'index']);
 Route::get('/projects/{id}', [ProjectController::class, 'show']);
 
@@ -43,22 +39,5 @@ Route::middleware(AdminPageGuard::class)->group(function () {
     Route::put('/admin-project/{id}', [AdminController::class, 'updateProject'])->name('admin.project.update');
     Route::delete('/admin-project/{id}', [AdminController::class, 'destroyProject'])->name('admin.project.destroy');
     Route::get('/admin-pricing', [AdminController::class, 'managePricing']);
-});
-
-Route::get('/test-cloudinary', function () {
-    try {
-        $cloudName = config('cloudinary.cloud_name');
-        $apiKey = config('cloudinary.api_key');
-        $apiSecret = config('cloudinary.api_secret');
-        
-        return response()->json([
-            'cloud_name' => $cloudName ? 'Set ✓' : 'Not set ✗',
-            'api_key' => $apiKey ? 'Set ✓' : 'Not set ✗',
-            'api_secret' => $apiSecret ? 'Set ✓' : 'Not set ✗',
-            'cloud_name_value' => $cloudName,
-        ]);
-    } catch (\Exception $e) {
-        return response()->json(['error' => $e->getMessage()]);
-    }
 });
 require __DIR__.'/auth.php';

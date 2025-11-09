@@ -9,7 +9,7 @@
         <img src="/images/login/circle-filler.svg" class="absolute top-[-25%] right-[-20%] rotate-[180deg]" alt="">
         <img src="/images/login/circle-border.svg" class="absolute top-[-40%] right-[-10%]" alt="">
 
-        <div class="relative z-10 bg-white rounded-lg shadow-lg p-8 md:p-12 w-full max-w-md mx-4">
+        <div class="relative z-10 bg-white rounded-lg shadow-lg p-8 md:p-12 w-full max-w-[90%] sm:max-w-md mx-4">
             <form method="POST" action="{{ route('register') }}" class="space-y-4">
                 @csrf
 

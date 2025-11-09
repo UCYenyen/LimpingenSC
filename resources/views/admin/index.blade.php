@@ -2,7 +2,8 @@
 @section('title', 'Admin Home')
 
 @section('content')
-<div class="w-screen min-h-screen pt-[7vh] flex flex-col items-center justify-center p-8">
+<div class="w-screen min-h-screen pt-[10vh] sm:pt-[7vh] gap-4 flex flex-col items-center justify-center p-8">
+    <h1 class="text-4xl font-semibold max-w-6xl w-full text-start">Welcome, {{$adminName}}</h1>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-6xl">
         <a href="/admin-request" class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 p-8 flex flex-col items-center justify-center group">
             <div class="text-blue-600 mb-4">
@@ -16,8 +17,9 @@
 
          <a href="/admin-users" class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 p-8 flex flex-col items-center justify-center group">
             <div class="text-blue-600 mb-4">
-                <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                <svg class="w-16 h-16 rounded-full border-2 border-gray-200 p-2 bg-white text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 12a4 4 0 100-8 4 4 0 000 8z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 20a8 8 0 0116 0" />
                 </svg>
             </div>
             <h3 class="text-2xl font-bold text-gray-800 group-hover:text-blue-600 transition-colors">Users</h3>

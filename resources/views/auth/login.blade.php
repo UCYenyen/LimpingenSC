@@ -8,7 +8,7 @@
         <img src="/images/login/circle-border.svg" class="absolute bottom-[-30%] left-[-30%]" alt="">
         <img src="/images/login/circle-filler.svg" class="absolute top-[-25%] right-[-20%] rotate-[180deg]" alt="">
         <img src="/images/login/circle-border.svg" class="absolute top-[-40%] right-[-10%]" alt="">
-        <form method="POST" action="{{ route('login') }}" class="bg-white rounded-lg shadow-lg p-12">
+        <form method="POST" action="{{ route('login') }}" class="bg-white rounded-lg shadow-lg p-12 max-w-[90%]">
             @csrf
 
             <!-- Email Address -->
@@ -27,12 +27,12 @@
                     autocomplete="current-password" placeholder="**********"/>
 
                 <x-input-error :messages="$errors->get('password')" class="mt-2" />
-                @if (Route::has('password.request'))
+                {{-- @if (Route::has('password.request'))
                     <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                         href="{{ route('password.request') }}">
                         {{ __('Forgot your password?') }}
                     </a>
-                @endif
+                @endif --}}
             </div>
 
             <!-- Remember Me -->

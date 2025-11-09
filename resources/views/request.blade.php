@@ -4,7 +4,7 @@
 @section('content')
 {{-- Using Tailwind CSS --}}
 <div class="min-h-screen flex items-center justify-center py-12 bg-gray-50">
-    <div class="w-full max-w-2xl bg-white rounded-lg shadow-md overflow-hidden">
+    <div class="w-full sm:max-w-2xl bg-white rounded-lg shadow-md overflow-hidden max-w-[90%]">
         <div class="px-6 py-8 md:px-10">
             <h3 class="text-center text-2xl font-semibold mb-6">Request</h3>
 

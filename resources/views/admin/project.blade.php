@@ -97,7 +97,7 @@
                 </div>
 
                 @if ($allProjects->hasPages())
-                    <div class="bg-gray-50 px-6 py-4 border-t border-gray-200">
+                    <div class="flex justify-end bg-gray-50 px-6 py-4 border-t border-gray-200">
                         {{ $allProjects->links() }}
                     </div>
                 @endif
